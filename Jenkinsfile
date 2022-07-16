@@ -21,6 +21,7 @@ node{
        sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.213 ${dockerRun2}"
        sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.213 ${dockerRun}"
        sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.213 ${dockerRun1}"
+       sh 'ls'   
      }
    }
 }
