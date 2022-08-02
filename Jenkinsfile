@@ -12,7 +12,7 @@ node{
      sh 'docker push joyktech/my-testpython:2.0.1'
    }
    stage('Run Container on Staging'){ 
-     def dockerRun = 'docker run  -p 127.0.0.1:6379:6379 -d --name redis redis'
+     def dockerRun = 'docker run  -p 6378:6379 -d --name redis redis'
      def dockerRun1 = 'docker run -p 4040:80 -d --link redis --name my-python-app joyktech/my-testpython:2.0.1'
      def dockerRun2 = 'docker rm -f my-python-app'
      def dockerRun3 = 'docker rm -f redis'
