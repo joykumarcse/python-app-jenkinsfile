@@ -3,7 +3,7 @@ node{
        git 'https://github.com/joyktech/python-app-jenkinsfile.git'
    }
    stage('build Docker Image'){
-     sh 'docker build -t joyktech/my-testpython:2.0.4 .'
+     sh 'docker build -t joyktech/my-testpython:2.0.5 .'
    }
    stage('Push Docker Image'){
      withCredentials([string(credentialsId: 'dockerpassword', variable: 'dockerhubpassword3')]) {
@@ -17,7 +17,7 @@ node{
      def dockerRun2 = 'docker rm -f my-python-app'
      def dockerRun3 = 'docker rm -f redis'
      sshagent(['dockerserver3']) {
-       sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.215 ${dockerRun3}"
+       sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.217 ${dockerRun3}"
        sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.217 ${dockerRun2}"
        sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.217 ${dockerRun}"
        sh "ssh -o StrictHostKeyChecking=no -p 2209 root@172.16.20.217 ${dockerRun1}"
