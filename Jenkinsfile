@@ -6,7 +6,7 @@ node{
      sh 'docker build -t joyktech/my-testpython:2.0.2 .'
    }
    stage('Push Docker Image'){
-     withCredentials([string(credentialsId: 'dockerpassword1', variable: 'dockerhubpassword')]) {
+     withCredentials([string(credentialsId: 'dockerpassword', variable: 'dockerhubpassword')]) {
         sh "docker login -u joyktech -p ${dockerhubpassword}"
      }
      sh 'docker push joyktech/my-testpython:2.0.2'
