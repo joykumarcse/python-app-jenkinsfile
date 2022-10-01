@@ -17,7 +17,7 @@ def hello():
 
     html = "<h3>Hello {name}!</h3>" \
            "<b>Visits:</b> {visits}"
-    return html.format(name=os.getenv("NAME", "Rahim & Rumi Vai, Thanks for Watching my Presentation!!"), visits=visits)
+    return html.format(name=os.getenv("NAME", "world"), visits=visits)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
